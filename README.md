@@ -50,10 +50,26 @@ npm install
 Create a .env file in the backend folder and add the following configuration:
 
 PORT=4000
-MONGO_URI=<your_mongo_connection_string>
-JWT_SECRET=<your_jwt_secret_key>
+
 Run the backend:
 
 npm start
 The backend should now be running at http://localhost:4000.
 
+## API Documentation
+
+### Authentication Endpoints
+- **Register**: `POST /api/v1/signup`
+  - Request body: `{ "name": "John Doe", "email": "john@example.com", "password": "password123" }`
+- **Login**: `POST /api/v1/login`
+  - Request body: `{ "email": "john@example.com", "password": "password123" }`
+
+### Task Endpoints
+- **Get Tasks**: `GET /api/v1/tasks` (Requires authentication)
+- **Create Task**: `POST /api/v1/tasks/new`
+  - Request body: `{ "title": "Task 1", "description": "Task details", "dueDate": "2025-01-30", "status": "Pending" }`
+- **Update Task**: `PUT /api/v1/tasks/:id`
+  - Request body: `{ "title": "Updated Task", "status": "In Progress" }`
+- **Delete Task**: `DELETE /api/v1/tasks/:id`
+
+---
